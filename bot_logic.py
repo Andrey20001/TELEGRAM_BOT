@@ -8,7 +8,7 @@ def gen_pass(pass_length):
     return password
 
 def gen_emodji():
-    emodji = ["\U0001f600", "\U0001f642", "\U0001F606", "\U0001F923"]
+    emodji = ["\U0001f600", "\U0001f642", "\U0001F606", "🤖", "☠"]
     return random.choice(emodji)
 
 
