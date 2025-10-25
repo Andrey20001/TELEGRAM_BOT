@@ -2,12 +2,11 @@ import telebot
 from bot_logic import gen_pass, gen_emodji, flip_coin
 
 
-bot = telebot.TeleBot("НАПИШИ СВОЙ ТОКЕН")
-
+bot = telebot.TeleBot("СВОЙ ТОКЕН")
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.send_message(message.chat.id, "Привет! Я Змейка!")
+    bot.send_message(message.chat.id, "Привет! Я бешеная Змейка 3000!")
 
 
 @bot.message_handler(commands=['Привет!'])
