@@ -32,7 +32,34 @@ def send_coin(message):
     coin = flip_coin()
     bot.reply_to(message, "Монетка выпала так: " + coin)
 
+####&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
+# Обработчик команды '/hi'
+@bot.message_handler(commands=['hi'])
+def send_hi(message):
+    count_hi = int(message.text.split()[1]) if len(message.text.split()) > 1 else 5
+    bot.reply_to(message, "Привет! " * count_hi)
+
+# Обработчик команды '/e1'
+@bot.message_handler(commands=['e1'])
+def send_cross_e(message):
+    cross = (message.text.split()[1]) if len(message.text.split()) > 1 else 5
+    bot.reply_to(message, "⊹⊹⊹")
+
+# Обработчик команды '/e2'
+@bot.message_handler(commands=['e2'])
+def send_bu_e(message):
+    bu = (message.text.split()[1]) if len(message.text.split()) > 1 else 5
+    bot.reply_to(message, "👻👻👻")
+
+
+# Обработчик команды '/e3'
+@bot.message_handler(commands=['e3'])
+def send_hello_e(message):
+    hello = (message.text.split()[1]) if len(message.text.split()) > 1 else 5
+    bot.reply_to(message, "👋👋👋")
+
+####&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 
 @bot.message_handler(func=lambda message: True)
