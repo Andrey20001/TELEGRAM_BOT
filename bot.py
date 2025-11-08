@@ -1,8 +1,35 @@
-import telebot
+import telebot, os, requests, random
 from bot_logic import gen_pass, gen_emodji, flip_coin
 
 
-bot = telebot.TeleBot("СВОЙ ТОКЕН")
+bot = telebot.TeleBot("")
+
+##################################################################
+@bot.message_handler(commands=['mem'])
+def send_mem(message):
+    img = random.choice(os.listdir("images"))
+    with open(f'images/{img}', 'rb') as f:
+        bot.send_photo(message.chat.id, f)
+
+@bot.message_handler(commands=['animals'])
+def send_mem_animals(message):
+    img = random.choice(os.listdir("images_animals"))
+    with open(f'images_animals/{img}', 'rb') as f:
+        bot.send_photo(message.chat.id, f)
+
+
+#КОМАНДА /duck
+def get_duck_image_url():
+    url = 'https://random-d.uk/api/random'
+    res = requests.get(url)
+    data = res.json()
+    return data['url']
+@bot.message_handler(commands=['duck'])
+def duck(message):
+    image_url = get_duck_image_url()
+    bot.reply_to(message, image_url)
+
+##################################################################
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
