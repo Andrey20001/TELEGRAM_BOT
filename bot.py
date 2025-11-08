@@ -2,7 +2,7 @@ import telebot, os, requests, random
 from bot_logic import gen_pass, gen_emodji, flip_coin
 
 
-bot = telebot.TeleBot("")
+bot = telebot.TeleBot("СВОЙ ТОКЕН")
 
 ##################################################################
 @bot.message_handler(commands=['mem'])
